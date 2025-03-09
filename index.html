@@ -11,7 +11,7 @@
             align-items: center;
             font-family: Arial, sans-serif;
             margin: 20px;
-            background-color: #cce7ff; /* Light blue */
+            background-color: #000; /* Black background */
             min-height: 100vh;
             overflow-x: hidden; /* Prevent horizontal scroll */
             position: relative;
@@ -39,7 +39,7 @@
             max-width: 600px;
             margin: 50px 0; /* More space between images */
             position: relative;
-            z-index: 2; /* Keeps main images above animations */
+            z-index: 1; /* Keeps main images below floating icons */
         }
 
         /* Floating icons */
@@ -47,7 +47,7 @@
             position: absolute; /* Adjust positioning relative to images */
             width: 200px; /* Icon size is 200px */
             opacity: 0.9;
-            z-index: 1;
+            z-index: 10; /* Higher z-index to keep them always on top */
         }
 
         /* Up-Down Animation (2x faster) */
@@ -76,7 +76,7 @@
     <img src="image2.jpg" class="content-img" alt="Image 2">
     <img src="image3.jpg" class="content-img" alt="Image 3">
 
-    <!-- Floating Icons Near Images -->
+    <!-- Floating Icons Always on Top -->
     <img src="map-icon.png" class="floating map-icon" alt="Map Icon">
     <img src="food-icon.png" class="floating food-icon" alt="Food Icon">
     <img src="smile-icon.png" class="floating smile-icon" alt="Smile Icon">
