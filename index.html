@@ -12,7 +12,7 @@
             font-family: Arial, sans-serif;
             margin: 20px;
             background-color: #cce7ff; /* Light blue */
-            overflow: hidden;
+            min-height: 100vh; /* Allow scrolling */
         }
         img {
             width: 80%; 
@@ -21,18 +21,22 @@
             position: relative;
             z-index: 2; /* Keeps images above animation */
         }
-        /* Animated background elements */
+        /* Floating background elements */
         .floating {
-            position: absolute;
-            width: 50px;
-            opacity: 0.6;
-            animation: float 8s infinite alternate ease-in-out;
+            position: fixed; /* Keep elements in the viewport */
+            width: 50px; /* Adjust size */
+            opacity: 0.8;
+            animation: float 6s infinite alternate ease-in-out;
         }
         /* Floating animation */
         @keyframes float {
             0% { transform: translateY(0px); }
-            100% { transform: translateY(30px); }
+            100% { transform: translateY(20px); }
         }
+        /* Position floating elements in visible areas */
+        .map-icon { top: 10%; left: 5%; }
+        .food-icon { top: 30%; right: 10%; animation-delay: 1s; }
+        .smile-icon { bottom: 15%; left: 40%; animation-delay: 2s; }
     </style>
 </head>
 <body>
@@ -43,9 +47,9 @@
     <img src="image3.jpg" alt="Image 3">
 
     <!-- Floating elements -->
-    <img src="map-icon.png" class="floating" style="top: 10%; left: 10%;">
-    <img src="food-icon.png" class="floating" style="top: 50%; right: 15%; animation-delay: 2s;">
-    <img src="smile-icon.png" class="floating" style="bottom: 10%; left: 40%; animation-delay: 4s;">
+    <img src="map-icon.png" class="floating map-icon" alt="Map Icon">
+    <img src="food-icon.png" class="floating food-icon" alt="Food Icon">
+    <img src="smile-icon.png" class="floating smile-icon" alt="Smile Icon">
 
 </body>
 </html>
