@@ -17,6 +17,22 @@
             position: relative;
         }
 
+        /* Fancy Shining Title */
+        h1 {
+            font-size: 40px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #fff;
+            text-shadow: 0 0 10px #ff9, 0 0 20px #ff6, 0 0 30px #ff3, 0 0 40px #ff0;
+            animation: shine 2s infinite alternate ease-in-out;
+        }
+
+        @keyframes shine {
+            0% { text-shadow: 0 0 5px #ff9, 0 0 10px #ff6, 0 0 15px #ff3; }
+            100% { text-shadow: 0 0 15px #ff9, 0 0 30px #ff6, 0 0 45px #ff3, 0 0 60px #ff0; }
+        }
+
         /* Main images */
         img.content-img {
             width: 80%;
@@ -29,27 +45,27 @@
         /* Floating icons */
         .floating {
             position: absolute; /* Adjust positioning relative to images */
-            width: 200px; /* Icon size increased to 200px */
+            width: 200px; /* Icon size is 200px */
             opacity: 0.9;
             z-index: 1;
         }
 
-        /* Up-Down Animation */
+        /* Up-Down Animation (2x faster) */
         @keyframes float {
             0% { transform: translateY(0px); }
             100% { transform: translateY(30px); }
         }
 
-        /* Left-Right Animation */
+        /* Left-Right Animation (2x faster) */
         @keyframes moveSideways {
             0% { transform: translateX(0px); }
             100% { transform: translateX(30px); }
         }
 
         /* Position icons near respective images */
-        .map-icon { top: 180px; left: 5%; animation: float 5s infinite alternate ease-in-out; }
-        .food-icon { top: 500px; right: 10%; animation: moveSideways 4s infinite alternate ease-in-out; }
-        .smile-icon { top: 850px; left: 15%; animation: float 6s infinite alternate ease-in-out; }
+        .map-icon { top: 180px; left: 5%; animation: float 2.5s infinite alternate ease-in-out; }
+        .food-icon { top: 500px; right: 10%; animation: moveSideways 2s infinite alternate ease-in-out; }
+        .smile-icon { top: 850px; left: 15%; animation: float 3s infinite alternate ease-in-out; }
 
     </style>
 </head>
