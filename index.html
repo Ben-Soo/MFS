@@ -11,60 +11,41 @@
             align-items: center;
             font-family: Arial, sans-serif;
             margin: 20px;
-            background-color: lightblue;
+            background-color: #cce7ff; /* Light blue */
             overflow: hidden;
         }
         img {
-            width: 80%;
+            width: 80%; 
             max-width: 600px;
             margin: 20px 0;
+            position: relative;
+            z-index: 2; /* Keeps images above animation */
         }
-        .animated-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
-        .bubble {
+        /* Animated background elements */
+        .floating {
             position: absolute;
             width: 50px;
-            height: 50px;
-            background: rgba(255, 255, 255, 0.5);
-            border-radius: 50%;
             opacity: 0.6;
-            animation: floatUp 10s linear infinite;
+            animation: float 8s infinite alternate ease-in-out;
         }
-        @keyframes floatUp {
-            from {
-                transform: translateY(100vh);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(-10vh);
-                opacity: 1;
-            }
+        /* Floating animation */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(30px); }
         }
     </style>
 </head>
 <body>
-    <div class="animated-bg">
-        <script>
-            for (let i = 0; i < 20; i++) {
-                let bubble = document.createElement("div");
-                bubble.className = "bubble";
-                bubble.style.left = Math.random() * 100 + "vw";
-                bubble.style.width = Math.random() * 60 + 20 + "px";
-                bubble.style.height = bubble.style.width;
-                bubble.style.animationDuration = (Math.random() * 5 + 5) + "s";
-                document.querySelector(".animated-bg").appendChild(bubble);
-            }
-        </script>
-    </div>
     <h1>Map, Food, Smiles</h1>
+
     <img src="image1.jpg" alt="Image 1">
     <img src="image2.jpg" alt="Image 2">
     <img src="image3.jpg" alt="Image 3">
+
+    <!-- Floating elements -->
+    <img src="map-icon.png" class="floating" style="top: 10%; left: 10%;">
+    <img src="food-icon.png" class="floating" style="top: 50%; right: 15%; animation-delay: 2s;">
+    <img src="smile-icon.png" class="floating" style="bottom: 10%; left: 40%; animation-delay: 4s;">
+
 </body>
 </html>
