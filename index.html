@@ -21,50 +21,35 @@
         img.content-img {
             width: 80%;
             max-width: 600px;
-            margin: 20px 0;
+            margin: 50px 0; /* More space between images */
             position: relative;
             z-index: 2; /* Keeps main images above animations */
         }
 
-        /* Floating background elements */
+        /* Floating icons */
         .floating {
-            position: fixed;
-            width: 150px; /* Triple the size */
-            opacity: 0.8;
+            position: absolute; /* Adjust positioning relative to images */
+            width: 200px; /* Icon size increased to 200px */
+            opacity: 0.9;
             z-index: 1;
         }
 
-        /* First set: Up-Down animation */
-        .floating-up-down {
-            animation: float 6s infinite alternate ease-in-out;
-        }
-
-        /* Second set: Left-Right animation */
-        .floating-left-right {
-            animation: moveSideways 5s infinite alternate ease-in-out;
-        }
-
-        /* Up & Down animation */
+        /* Up-Down Animation */
         @keyframes float {
             0% { transform: translateY(0px); }
-            100% { transform: translateY(40px); }
+            100% { transform: translateY(30px); }
         }
 
-        /* Left & Right animation */
+        /* Left-Right Animation */
         @keyframes moveSideways {
             0% { transform: translateX(0px); }
-            100% { transform: translateX(40px); }
+            100% { transform: translateX(30px); }
         }
 
-        /* Position first set of floating elements (Up-Down) */
-        .map-icon { top: 10%; left: 5%; }
-        .food-icon { top: 30%; right: 10%; animation-delay: 1s; }
-        .smile-icon { bottom: 15%; left: 40%; animation-delay: 2s; }
-
-        /* Position second set of floating elements (Left-Right) */
-        .map-icon-2 { top: 50%; left: 15%; animation-delay: 0.5s; }
-        .food-icon-2 { bottom: 20%; right: 15%; animation-delay: 1.5s; }
-        .smile-icon-2 { top: 70%; left: 50%; animation-delay: 2.5s; }
+        /* Position icons near respective images */
+        .map-icon { top: 180px; left: 5%; animation: float 5s infinite alternate ease-in-out; }
+        .food-icon { top: 500px; right: 10%; animation: moveSideways 4s infinite alternate ease-in-out; }
+        .smile-icon { top: 850px; left: 15%; animation: float 6s infinite alternate ease-in-out; }
 
     </style>
 </head>
@@ -75,15 +60,10 @@
     <img src="image2.jpg" class="content-img" alt="Image 2">
     <img src="image3.jpg" class="content-img" alt="Image 3">
 
-    <!-- Floating Up-Down elements -->
-    <img src="map-icon.png" class="floating floating-up-down map-icon" alt="Map Icon">
-    <img src="food-icon.png" class="floating floating-up-down food-icon" alt="Food Icon">
-    <img src="smile-icon.png" class="floating floating-up-down smile-icon" alt="Smile Icon">
-
-    <!-- Floating Left-Right elements -->
-    <img src="map-icon.png" class="floating floating-left-right map-icon-2" alt="Map Icon 2">
-    <img src="food-icon.png" class="floating floating-left-right food-icon-2" alt="Food Icon 2">
-    <img src="smile-icon.png" class="floating floating-left-right smile-icon-2" alt="Smile Icon 2">
+    <!-- Floating Icons Near Images -->
+    <img src="map-icon.png" class="floating map-icon" alt="Map Icon">
+    <img src="food-icon.png" class="floating food-icon" alt="Food Icon">
+    <img src="smile-icon.png" class="floating smile-icon" alt="Smile Icon">
 
 </body>
 </html>
