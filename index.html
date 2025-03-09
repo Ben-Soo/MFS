@@ -12,43 +12,48 @@
             font-family: Arial, sans-serif;
             margin: 20px;
             background-color: #cce7ff; /* Light blue */
-            min-height: 100vh; /* Allow scrolling */
+            min-height: 100vh;
             overflow-x: hidden; /* Prevent horizontal scroll */
+            position: relative;
         }
-        img {
-            width: 80%; 
+
+        /* Main images */
+        img.content-img {
+            width: 80%;
             max-width: 600px;
             margin: 20px 0;
             position: relative;
-            z-index: 2; /* Keeps images above animation */
+            z-index: 2; /* Keeps main images above animations */
         }
 
-        /* Floating background elements (Up-Down Movement) */
+        /* Floating background elements */
         .floating {
             position: fixed;
-            width: 100px; /* Doubled size */
+            width: 150px; /* Triple the size */
             opacity: 0.8;
+            z-index: 1;
+        }
+
+        /* First set: Up-Down animation */
+        .floating-up-down {
             animation: float 6s infinite alternate ease-in-out;
         }
 
-        /* New Floating elements (Left-Right Movement) */
-        .floating-horizontal {
-            position: fixed;
-            width: 100px; /* Doubled size */
-            opacity: 0.8;
+        /* Second set: Left-Right animation */
+        .floating-left-right {
             animation: moveSideways 5s infinite alternate ease-in-out;
         }
 
-        /* Floating animation (Up & Down) */
+        /* Up & Down animation */
         @keyframes float {
             0% { transform: translateY(0px); }
-            100% { transform: translateY(30px); }
+            100% { transform: translateY(40px); }
         }
 
-        /* Floating animation (Left & Right) */
+        /* Left & Right animation */
         @keyframes moveSideways {
             0% { transform: translateX(0px); }
-            100% { transform: translateX(30px); }
+            100% { transform: translateX(40px); }
         }
 
         /* Position first set of floating elements (Up-Down) */
@@ -66,19 +71,19 @@
 <body>
     <h1>Map, Food, Smiles</h1>
 
-    <img src="image1.jpg" alt="Image 1">
-    <img src="image2.jpg" alt="Image 2">
-    <img src="image3.jpg" alt="Image 3">
+    <img src="image1.jpg" class="content-img" alt="Image 1">
+    <img src="image2.jpg" class="content-img" alt="Image 2">
+    <img src="image3.jpg" class="content-img" alt="Image 3">
 
     <!-- Floating Up-Down elements -->
-    <img src="map-icon.png" class="floating map-icon" alt="Map Icon">
-    <img src="food-icon.png" class="floating food-icon" alt="Food Icon">
-    <img src="smile-icon.png" class="floating smile-icon" alt="Smile Icon">
+    <img src="map-icon.png" class="floating floating-up-down map-icon" alt="Map Icon">
+    <img src="food-icon.png" class="floating floating-up-down food-icon" alt="Food Icon">
+    <img src="smile-icon.png" class="floating floating-up-down smile-icon" alt="Smile Icon">
 
     <!-- Floating Left-Right elements -->
-    <img src="map-icon.png" class="floating-horizontal map-icon-2" alt="Map Icon 2">
-    <img src="food-icon.png" class="floating-horizontal food-icon-2" alt="Food Icon 2">
-    <img src="smile-icon.png" class="floating-horizontal smile-icon-2" alt="Smile Icon 2">
+    <img src="map-icon.png" class="floating floating-left-right map-icon-2" alt="Map Icon 2">
+    <img src="food-icon.png" class="floating floating-left-right food-icon-2" alt="Food Icon 2">
+    <img src="smile-icon.png" class="floating floating-left-right smile-icon-2" alt="Smile Icon 2">
 
 </body>
 </html>
