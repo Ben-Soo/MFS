@@ -45,9 +45,16 @@
         /* Floating icons */
         .floating {
             position: absolute; /* Adjust positioning relative to images */
-            width: 200px; /* Icon size is 200px */
             opacity: 0.9;
             z-index: 10; /* Higher z-index to keep them always on top */
+        }
+
+        /* Set sizes for icons */
+        .map-icon, .food-icon {
+            width: 200px; /* Standard size */
+        }
+        .smile-icon {
+            width: 400px; /* Smile icon is doubled in size */
         }
 
         /* Up-Down Animation (2x faster) */
@@ -65,7 +72,7 @@
         /* Position icons near respective images */
         .map-icon { top: 180px; left: 5%; animation: float 2.5s infinite alternate ease-in-out; }
         .food-icon { top: 500px; right: 10%; animation: moveSideways 2s infinite alternate ease-in-out; }
-        .smile-icon { top: 850px; left: 15%; animation: float 3s infinite alternate ease-in-out; }
+        .smile-icon { top: 850px; left: 10%; animation: float 3s infinite alternate ease-in-out; }
 
     </style>
 </head>
